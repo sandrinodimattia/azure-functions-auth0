@@ -23,6 +23,7 @@ module.exports = (options) => {
     audience: options.clientId,
     issuer: 'https://' + options.domain + '/'
   });
+
   return (next) => {
     return (context, req) => {
       middleware(req, null, (err) => {
