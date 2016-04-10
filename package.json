@@ -1,0 +1,44 @@
+{
+  "name": "azure-functions-auth0",
+  "version": "1.0.0",
+  "description": "Authenticate your Azure Functions with Auth0",
+  "main": "lib/index.js",
+  "dependencies": {
+    "express-jwt": "^3.3.0"
+  },
+  "devDependencies": {
+    "babel-istanbul": "^0.6.0",
+    "babel-cli": "^6.4.5",
+    "babel-core": "^6.4.5",
+    "babel-eslint": "^4.1.6",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-stage-2": "^6.3.13",
+    "chai": "^3.5.0",
+    "eslint": "^1.10.3",
+    "eslint-plugin-babel": "^3.0.0",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.4.5",
+    "rimraf": "^2.5.1"
+  },
+  "scripts": {
+    "clean": "rimraf lib/",
+    "compile": "babel -d lib/ src/",
+    "prepublish": "npm run clean && npm run compile",
+    "release": "git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish",
+    "test-watch": "NODE_ENV=test mocha --compilers js:babel-core/register --timeout 5000 $(find ./tests -name *.tests.js) --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sandrinodimattia/azure-functions-auth0.git"
+  },
+  "keywords": [
+    "azure",
+    "resource manager"
+  ],
+  "author": "Sandrino Di Mattia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sandrinodimattia/azure-functions-auth0/issues"
+  },
+  "homepage": "https://github.com/sandrinodimattia/azure-functions-auth0#readme"
+}
