@@ -19,7 +19,8 @@ module.exports = (options) => {
   }
 
   const middleware = jwt({
-    secret: new Buffer(options.clientSecret, 'base64'),
+    //Auth0 stops generating Base64 Client Secret after 6th Dec, so this has to allow both
+    secret: options.isSecretBase64 ? new Buffer(options.clientSecret, 'base64') : options.clientSecret,
     audience: options.clientId,
     issuer: 'https://' + options.domain + '/'
   });
