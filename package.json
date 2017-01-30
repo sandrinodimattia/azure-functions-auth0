@@ -1,6 +1,6 @@
 {
   "name": "azure-functions-auth0",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Authenticate your Azure Functions with Auth0",
   "main": "lib/index.js",
   "dependencies": {
