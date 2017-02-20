@@ -28,14 +28,14 @@ module.exports = (options) => {
     return (context, req) => {
       middleware(req, null, (err) => {
         if (err) {
-          context.res = {
+          var res = {
             status: err.status || 500,
             body: {
               message: err.message
             }
           };
 
-          return context.done();
+          return context.done(null, res);
         }
 
         return next(context, req);
